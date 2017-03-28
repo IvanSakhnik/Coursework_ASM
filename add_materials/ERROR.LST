@@ -1,0 +1,80 @@
+Microsoft (R) Macro Assembler Version 5.00                  5/18/16 01:12:59
+                                                             Page     1-1
+
+
+				.386 
+ 0000				data segment 
+ 0000  12000000			A1 dd 12h 
+ 0004  0075			A2 dw 117 
+ 0006  09			A3 db 01001b 
+ 0007  51 77 65 72 74 79 31	Text1 db "Qwerty167" 
+       36 37			
+ 0010				data ends  
+				 
+ = 000D				T EQU 13 
+ = 0000				T1 EQU 0 
+				 
+ 0000				code segment 
+				Assume cs:code, ds:data 
+ 0000  A5			movsd add 
+error.ASM(14): warning A4001: Extra characters on line
+ 0001				Point: 
+ 0001  0F 86 00000000 U		jbe erPoint 
+error.ASM(16): error A2009: Symbol not defined: ERPOINT
+ 0007  FE 040B			inc [ebx+ecx] 
+error.ASM(17): error A2035: Operand must have size
+				if T 
+ 000A  FE CC			dec ah 
+ 000C  03 1C0B			add ebx, [ebx+ecx] 
+				endif 
+ 000F  39 040B			cmp [ebx+ecx], eax 
+ 0012  26: 83 240B 12		and es:[ebx+ecx], 12h 
+error.ASM(25): error A2035: Operand must have size
+ 0017  76 E8			jbe Point 
+ 0019  B8 00000000		mov eax 
+error.ASM(27): error A2105: Expected: comma
+				else 
+ 001E  B0 00			mov al, 0h 
+				endif 
+ 0020  0D 00000132		or eax, 132h 
+ 0025				M1: 
+ 0025				code ends 
+				END  
+Microsoft (R) Macro Assembler Version 5.00                  5/18/16 01:12:59
+                                                             Symbols-1
+
+
+
+
+                N a m e         	Size	Length	 Align	Combine Class
+
+CODE . . . . . . . . . . . . . .  	32 Bit	0025	PARA	NONE	
+DATA . . . . . . . . . . . . . .  	32 Bit	0010	PARA	NONE	
+
+Symbols:            
+
+                N a m e         	Type	 Value	 Attr
+
+A1 . . . . . . . . . . . . . . .  	L DWORD	0000	DATA
+A2 . . . . . . . . . . . . . . .  	L WORD	0004	DATA
+A3 . . . . . . . . . . . . . . .  	L BYTE	0006	DATA
+
+M1 . . . . . . . . . . . . . . .  	L NEAR	0025	CODE
+
+POINT  . . . . . . . . . . . . .  	L NEAR	0001	CODE
+
+T  . . . . . . . . . . . . . . .  	NUMBER	000D	
+T1 . . . . . . . . . . . . . . .  	NUMBER	0000	
+TEXT1  . . . . . . . . . . . . .  	L BYTE	0007	DATA
+
+@FILENAME  . . . . . . . . . . .  	TEXT  error		
+
+
+     36 Source  Lines
+     36 Total   Lines
+     12 Symbols
+
+  51064 + 465480 Bytes symbol space free
+
+      1 Warning Errors
+      4 Severe  Errors

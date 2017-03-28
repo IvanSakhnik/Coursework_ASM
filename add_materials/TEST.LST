@@ -1,0 +1,79 @@
+Microsoft (R) Macro Assembler Version 5.00                  5/18/16 11:05:55
+                                                             Page     1-1
+
+
+				.386 
+ 0000				data segment 
+ 0000  12000000			A1 dd 12h 
+ 0004  0075			A2 dw 117 
+ 0006  09			A3 db 01001b 
+ 0007  51 77 65 72 74 79 31	Text1 db "Qwerty167" 
+       36 37			
+ 0010				data ends  
+				 
+ = 000D				T EQU 13 
+ = 0000				T1 EQU 0 
+				 
+ 0000				code segment 
+				Assume cs:code, ds:data 
+ 0000  10000000			B1 dd 10h 
+ 0004  2E: FF 0D 00000000 R	dec B1 
+ 000B  A5			movsd  
+ 000C				Point: 
+ 000C  0F 86 00000032 R		jbe M1 
+ 0012  43			inc ebx 
+				if T 
+ 0013  FE 0C30			dec byte ptr [eax+esi] 
+ 0016  03 DA			add ebx, edx 
+				endif 
+ 0018  FF 0D 00000000 R		dec A1 
+ 001E  26: 21 1C0B		and es:[ebx+ecx], ebx 
+ 0022  76 E8			jbe Point 
+ 0024  B8 00000013		mov eax, 13h 
+				else 
+ 0029  B0 00			mov al, 0h 
+				endif 
+ 002B  81 0C30 00000132		or dword ptr[eax+esi], 132h 
+ 0032				M1: 
+ 0032				code ends 
+				END  
+Microsoft (R) Macro Assembler Version 5.00                  5/18/16 11:05:55
+                                                             Symbols-1
+
+
+
+
+                N a m e         	Size	Length	 Align	Combine Class
+
+CODE . . . . . . . . . . . . . .  	32 Bit	0032	PARA	NONE	
+DATA . . . . . . . . . . . . . .  	32 Bit	0010	PARA	NONE	
+
+Symbols:            
+
+                N a m e         	Type	 Value	 Attr
+
+A1 . . . . . . . . . . . . . . .  	L DWORD	0000	DATA
+A2 . . . . . . . . . . . . . . .  	L WORD	0004	DATA
+A3 . . . . . . . . . . . . . . .  	L BYTE	0006	DATA
+
+B1 . . . . . . . . . . . . . . .  	L DWORD	0000	CODE
+
+M1 . . . . . . . . . . . . . . .  	L NEAR	0032	CODE
+
+POINT  . . . . . . . . . . . . .  	L NEAR	000C	CODE
+
+T  . . . . . . . . . . . . . . .  	NUMBER	000D	
+T1 . . . . . . . . . . . . . . .  	NUMBER	0000	
+TEXT1  . . . . . . . . . . . . .  	L BYTE	0007	DATA
+
+@FILENAME  . . . . . . . . . . .  	TEXT  test		
+
+
+     38 Source  Lines
+     38 Total   Lines
+     13 Symbols
+
+  51064 + 465480 Bytes symbol space free
+
+      0 Warning Errors
+      0 Severe  Errors

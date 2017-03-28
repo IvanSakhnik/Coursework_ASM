@@ -1,0 +1,50 @@
+ 0000   data segment
+ 0000   A1 dd 12h
+ 0004   A2 dw 117
+ 0006   A3 db 01001b
+ 0007   Text1 db "Qwerty167"
+ 0010   data ends 
+
+=000D   T EQU 13
+=0000   T1 EQU 0
+
+       
+ 0000   code segment
+ 0000   movsd add
+ 0001   Point:
+ 0001   jbe erPoint
+ 0001   inc [ebx+ecx]
+        if T
+ 0003   dec ah
+ 0003   add ebx, [ebx+ecx]
+        endif
+ 0003   cmp [ebx+ecx], eax
+ 0003   and es:[ebx+ecx], 12h
+ 0003   jbe Point
+ 0005   mov eax
+        else
+ 0005   mov al, 0h
+        endif
+ 0007   or eax, 132h
+ 0007   M1:
+ 0007   code ends
+        END 
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+Name           Size    Length
+
+data         32 bit      0010
+code         32 bit      0007
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+ Name        Type     Value      Attr
+
+   A1       DWORD      0000      data
+   A2        WORD      0004      data
+   A3        BYTE      0006      data
+Text1        BYTE      0007      data
+    T      NOMBER     =000D          
+   T1      NOMBER     =0000          
+Point        NEAR      0001      code
+   M1        NEAR      0007      code

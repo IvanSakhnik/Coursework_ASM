@@ -1,0 +1,19 @@
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+Name           Size    Length
+
+data         32 bit      0010
+code         32 bit      0007
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+ Name        Type     Value      Attr
+
+   A1       DWORD      0000      data
+   A2        WORD      0004      data
+   A3        BYTE      0006      data
+Text1        BYTE      0007      data
+    T      NOMBER     =000D          
+   T1      NOMBER     =0000          
+Point        NEAR      0001      code
+   M1        NEAR      0007      code
